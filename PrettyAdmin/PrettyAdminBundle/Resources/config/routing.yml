@@ -1,0 +1,3 @@
+pretty_admin_home:
+    prefix: /
+    resource: @PrettyAdminBundle/Resources/config/routing/pretty_admin.yml
