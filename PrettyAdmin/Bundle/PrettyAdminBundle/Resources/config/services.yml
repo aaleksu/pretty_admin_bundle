@@ -1,7 +1,0 @@
-parameters:
-#    pretty_admin.example.class: PrettyAdmin\Bundle\PrettyAdminBundle\Example
-
-services:
-#    pretty_admin.example:
-#        class: %pretty_admin.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

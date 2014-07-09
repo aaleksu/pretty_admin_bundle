@@ -1,3 +1,0 @@
-pretty_admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: PrettyAdminBundle:Default:index }
