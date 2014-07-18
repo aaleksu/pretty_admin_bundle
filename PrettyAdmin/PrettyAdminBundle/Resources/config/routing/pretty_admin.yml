@@ -1,3 +1,40 @@
 pretty_admin_home:
     pattern: /
     defaults: { _controller: PrettyAdminBundle:Home:index }
+
+pretty_admin_entity_index:
+    pattern: /{entity}/
+    defaults: { _controller: PrettyAdminBundle:Entity:index }
+    requirements:
+        _method: GET
+
+pretty_admin_entity_show:
+    pattern: /{entity}/{id}/
+    defaults: { _controller: PrettyAdminBundle:Entity:show, id: [0-9] }
+    requirements:
+        id: \d+
+        _method: GET
+
+pretty_admin_entity_new:
+    pattern: /{entity}/new/
+    defaults: { _controller: PrettyAdminBundle:Entity:new }
+    requirements:
+        _method: GET
+
+pretty_admin_entity_create:
+    pattern: /{entity}/
+    defaults: { _controller: PrettyAdminBundle:Entity:create }
+    requirements:
+        _method: POST
+
+pretty_admin_entity_edit:
+    pattern: /{entity}/{id}/edit/
+    defaults: { _controller: PrettyAdminBundle:Entity:edit }
+    requirements:
+        _method: GET
+
+pretty_admin_entity_update:
+    pattern: /{entity}/{id}/
+    defaults: { _controller: PrettyAdminBundle:Entity:update }
+    requirements:
+        _method: POST
