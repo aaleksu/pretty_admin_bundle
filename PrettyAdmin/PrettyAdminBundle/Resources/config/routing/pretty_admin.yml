@@ -3,10 +3,11 @@ pretty_admin_home:
     defaults: { _controller: PrettyAdminBundle:Home:index }
 
 pretty_admin_entity_index:
-    pattern: /{entity}/
-    defaults: { _controller: PrettyAdminBundle:Entity:index }
+    pattern: /{entity}.{_format}
+    defaults: { _controller: PrettyAdminBundle:Entity:index, _format: html }
     requirements:
         _method: GET
+        _format: html|json
 
 pretty_admin_entity_show:
     pattern: /{entity}/{id}/

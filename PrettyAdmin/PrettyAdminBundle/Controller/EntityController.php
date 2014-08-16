@@ -4,17 +4,25 @@ namespace PrettyAdmin\PrettyAdminBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class EntityController extends BaseController
 {
     public function indexAction(Request $request)
     {
-        $entities = $this->em->getRepository(sprintf("%s:%s", $this->bundle, $this->entity))->findAll();
-        $entityMetadata = $this->em->getClassMetadata(sprintf("%s:%s", $this->bundle, $this->entity));
+        //$entities = $this->em->getRepository(sprintf("%s:%s", $this->bundle, $this->entity))->findAll();
+        $entities = $this->connection->fetchAll(sprintf("select * from %s", $this->entityTableName));
+
+        if($request->get('_format') == 'json') {
+            return new JsonResponse(array(
+                'entities' => $entities,
+                'fields' => $this->entityMetadata->fieldNames
+            ));
+        }
 
         return $this->render('PrettyAdminBundle:Entity:index.html.twig', array(
             'entities' => $entities,
-            'fields' => $entityMetadata->fieldNames
+            'fields' => $this->entityMetadata->fieldNames
         ));
     }
 
