@@ -1,0 +1,25 @@
+<div class="entity_form_box">
+    <form id="entity_form" action="{{ form_action }}" method="post">
+        {% for field in fields %}
+        {% if field.columnName == 'id' %}
+        <input type="hidden" name="{{ field.columnName }}">
+        {% else %}
+        <div class="field">
+            <label for="{{ field.columnName }}">{{ field.columnName }}</label>
+            {% if field.type == 'text' %}
+            <textarea id="{{ field.columnName }}" name="{{ field.columnName }}"></textarea>
+            {% elseif field.type == 'string' %}
+            <input id="{{ field.columnName }}" type="text" name="{{ field.columnName }}">
+            {% elseif field.type == 'integer' %}
+            <input type="text" name="{{ field.columnName }}">
+            {% elseif field.type == 'boolean' %}
+            <input type="checkbox" name="{{ field.columnName }}">
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div class="submit">
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>

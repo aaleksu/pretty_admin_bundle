@@ -9,9 +9,15 @@
         <th ng-repeat="field in fields">
             [[ field ]]
         </th>
+        <th class="actions">Actions</th>
     </tr>
     <tr ng-repeat="entity in entities | filter:filter_entity">
-        <td ng-repeat="field in fields">[[ entity[field] ]]</td>
+        <td ng-repeat="field in fields"><a href="[[ entity.edit_route ]]">[[ entity[field] ]]</a></td>
+        <td class="actions">
+            <ul class="entity_actions_list">
+                <li class="entity_action"><span href="[[ entity.delete_route ]]" ng-click="deleteEntity([[ entity.delete_route ]], $index);">Delete</span></li>
+            </ul>
+        </td>
     </tr>
 </table>
 {% endblock %}

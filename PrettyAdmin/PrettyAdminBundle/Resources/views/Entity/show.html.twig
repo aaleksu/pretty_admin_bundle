@@ -1,0 +1,8 @@
+<div id="entity" class="show">
+    <h1>Show {{ entityName }} #{{ entity.id }}</h1>
+    {% for field in entity %}
+    <div class="entity_field">
+        {{ field }}
+    </div>
+    {% endfor %}
+</div>

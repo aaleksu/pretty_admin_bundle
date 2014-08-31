@@ -9,6 +9,6 @@ class HomeController extends BaseController
 {
     public function indexAction(Request $request)
     {
-        return new Response(__FILE__);
+        return $this->render('PrettyAdminBundle:Home:index.html.twig');
     }
 }

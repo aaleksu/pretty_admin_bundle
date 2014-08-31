@@ -39,3 +39,9 @@ pretty_admin_entity_update:
     defaults: { _controller: PrettyAdminBundle:Entity:update }
     requirements:
         _method: POST
+
+pretty_admin_entity_delete:
+    pattern: /{entity}/{id}/delete/
+    defaults: { _controller: PrettyAdminBundle:Entity:delete }
+    requirements:
+        _method: POST
