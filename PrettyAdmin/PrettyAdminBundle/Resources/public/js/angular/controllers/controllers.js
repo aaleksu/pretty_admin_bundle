@@ -6,6 +6,7 @@ var prettyAdminApp = angular.module('prettyAdminApp', [], function($interpolateP
 prettyAdminApp.controller('EntityCtrl', function($scope, $http){
     setEntities();
 
+    // TODO: replace these hardcoded values with real onces
     $scope.menu = [
         { route: '/admin/posts', label: 'Posts' },
         { route: '/admin/comments', label: 'Comments' }
